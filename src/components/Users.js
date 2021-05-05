@@ -13,12 +13,17 @@ export default function Users() {
   if (loading) return <p>Almost there...</p>
   if (error) return <p>{error.message}</p>
 
-  return (
-    <>
-      <h2>Users</h2>
-      <pre>
-        {JSON.stringify(users, null, "  ")}
-      </pre>
-    </>
-  )
+ return (
+  <>
+    <h2>Users</h2>
+
+    {users.map(user => (
+      <ul key={user.id}>
+        <li>
+          {user.name}
+        </li>
+      </ul>
+    ))}
+  </>
+)
 }
